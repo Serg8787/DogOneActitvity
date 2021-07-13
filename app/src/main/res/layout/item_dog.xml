@@ -17,7 +17,7 @@
             android:id="@+id/constRootItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivWhiteHeart"
             app:layout_constraintStart_toStartOf="parent"
