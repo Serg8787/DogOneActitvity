@@ -1,13 +1,16 @@
 package com.example.dogoneactitvity
 
+import android.R.attr.data
+import android.content.Intent
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_dog.*
+
 
 class MainActivity : AppCompatActivity(), DogsCallback {
 
@@ -28,8 +31,7 @@ class MainActivity : AppCompatActivity(), DogsCallback {
             Dog(
                 BitmapFactory.decodeResource(resources, R.drawable.mini1),
                 "Английский той терьер",
-                "Эти короткошерстные терьеры произошли от манчестерских терьеров (которые, предположительно, также относятся к предкам доберманов), хотя той терьеры ведут свой род из более западной части страны, из района Ливерпульских доков."
-                ,
+                "Эти короткошерстные терьеры произошли от манчестерских терьеров (которые, предположительно, также относятся к предкам доберманов), хотя той терьеры ведут свой род из более западной части страны, из района Ливерпульских доков.",
                 desc2 = "2",
 //                heartBitmap = BitmapFactory.decodeResource(resources, R.drawable.icons8_white_heart)
             ))
@@ -37,8 +39,7 @@ class MainActivity : AppCompatActivity(), DogsCallback {
             Dog(
                 BitmapFactory.decodeResource(resources, R.drawable.mini3),
                 "Болоньез",
-                "Эти невероятно серьезные собаки спокойны, уравновешены и очень привязаны к своим владельцам.."
-                ,
+                "Эти невероятно серьезные собаки спокойны, уравновешены и очень привязаны к своим владельцам..",
                 desc2 = "3",
 //                heartBitmap = BitmapFactory.decodeResource(resources, R.drawable.icons8_white_heart)
             ))
@@ -46,8 +47,7 @@ class MainActivity : AppCompatActivity(), DogsCallback {
             Dog(
                 BitmapFactory.decodeResource(resources, R.drawable.mini4),
                 "Йоркширский терьер",
-                "Активный и своенравный йоркширский терьер — отличная собака-компаньон."
-                ,
+                "Активный и своенравный йоркширский терьер — отличная собака-компаньон.",
                 desc2 = "4",
 //                heartBitmap = BitmapFactory.decodeResource(resources, R.drawable.icons8_white_heart)
             ))
@@ -82,8 +82,7 @@ class MainActivity : AppCompatActivity(), DogsCallback {
             Dog(
                 BitmapFactory.decodeResource(resources, R.drawable.mini8),
                 "Померанский шпиц",
-                "Сильный характер в маленьком теле.", desc2 = "8"
-                ,
+                "Сильный характер в маленьком теле.", desc2 = "8",
 //                heartBitmap = BitmapFactory.decodeResource(resources, R.drawable.icons8_white_heart)
             ))
         dogs.add(
@@ -107,8 +106,7 @@ class MainActivity : AppCompatActivity(), DogsCallback {
             Dog(
                 BitmapFactory.decodeResource(resources, R.drawable.mini11),
                 "Чихуахуа",
-                "Чихуахуа считается самой миниатюрной породой собак в мире.", desc2 = "11"
-                ,
+                "Чихуахуа считается самой миниатюрной породой собак в мире.", desc2 = "11",
 //                heartBitmap = BitmapFactory.decodeResource(resources, R.drawable.icons8_white_heart)
             ))
         dogs.add(
@@ -127,13 +125,14 @@ class MainActivity : AppCompatActivity(), DogsCallback {
     override fun itemDogSelected(index:Int) {
         rvDogs.visibility = View.GONE
         constAllView.visibility = View.VISIBLE
-        ivAvatarPosition.setImageBitmap(getDogs()[index].avatar)
-        tvNamePosition.text = getDogs()[index].name
-        tvDescriptionPosition.text = getDogs()[index].description
-        tvDescription2Position.text = getDogs()[index].desc2
+        ivAvatarDet.setImageBitmap(getDogs()[index].avatar)
+        tvNameDetail.text = getDogs()[index].name
+        tvDescriptionDetail.text = getDogs()[index].description
+        tvDescription2Detail.text = getDogs()[index].desc2
+        startActivity(intent)
     }
 
     override fun add(i: Int) {
-        tvCountHeart.text = i.toString()
+        tvCountHeart.text = "Количество лайков " + i.toString()
     }
 }
