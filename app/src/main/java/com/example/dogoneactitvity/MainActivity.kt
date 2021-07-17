@@ -2,6 +2,7 @@ package com.example.dogoneactitvity
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -192,12 +193,12 @@ class MainActivity : AppCompatActivity(), DogsCallback {
 
 
     override fun itemDogSelected(index: Int) {
-//        rvDogs.visibility = View.GONE
-//        scroll.visibility = View.VISIBLE
-//        ivAvatarDet.setImageBitmap(getDogs()[index].avatar)
-//        tvNameDetail.text = getDogs()[index].name
-//        tvDescriptionDetail.text = getDogs()[index].description
-//        tvDescription2Detail.text = getDogs()[index].desc2
+        rvDogs.visibility = View.GONE
+        scroll.visibility = View.VISIBLE
+        ivAvatarDet.setImageBitmap(getDogs()[index].avatar)
+        tvNameDetail.text = getDogs()[index].name
+        tvDescriptionDetail.text = getDogs()[index].description
+        tvDescription2Detail.text = getDogs()[index].desc2
 
     }
 
