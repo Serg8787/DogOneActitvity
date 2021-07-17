@@ -58,6 +58,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var description: TextView
     var root: View
 
+
     init {
         avatar = itemView.ivAvatar
         name = itemView.tvName
