@@ -30,18 +30,21 @@ class DogAdapter(
         holder.description.text = dogs[position].description
         holder.root.setOnClickListener { callback.itemDogSelected(position) }
 
-        holder.ivWhiteHeart.setOnClickListener { callback.addHeart(position)
+        holder.ivWhiteHeart.setOnClickListener {
+
             if (dogs[position].isHeart==false) {
                 holder.ivWhiteHeart.setImageResource(R.drawable.icons8_red_heart)
                 dogs[position].isHeart = true
                 count += 1
-//                callback.addHeart(position)
+                callback.addHeart(count)
             } else {
                holder.ivWhiteHeart.setImageResource(R.drawable.icons8_white_heart)
                 dogs[position].isHeart = false
                 count -=1
-//                callback.addHeart(position)
+                callback.addHeart(count)
             }
+
+
 
         }
     }
@@ -76,5 +79,5 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 interface DogsCallback {
     fun itemDogSelected(index: Int)
-    fun addHeart(index: Int)
+    fun addHeart(i: Int)
 }

@@ -136,16 +136,18 @@ class MainActivity : AppCompatActivity(), DogsCallback {
     }
 
     override fun addHeart(index: Int) {
-        if (getDogs()[index].isHeart==false) {
-            getDogs()[index].isHeart = true
-            countHeart += 1
-//                callback.addHeart(position)
-        } else {
-            getDogs()[index].bitmapHeart = BitmapFactory.decodeResource(resources,R.drawable.icons8_white_heart)
-            getDogs()[index].isHeart = false
-            countHeart -=1
-//                callback.addHeart(position)
-        }
+//        if (getDogs()[index].isHeart==false) {
+//            getDogs()[index].bitmapHeart = BitmapFactory.decodeResource(resources,R.drawable.icons8_red_heart)
+//            getDogs()[index].isHeart = true
+//            countHeart += 1
+            countHeart = index
+//        } else {
+////            getDogs()[index].bitmapHeart = BitmapFactory.decodeResource(resources,R.drawable.icons8_white_heart)
+////            getDogs()[index].isHeart = false
+//            countHeart =index
+////            countHeart -=1
+//////                callback.addHeart(position)
+//        }
         tvCountHeart.text = "Количество лайков ${countHeart}"
 
 
