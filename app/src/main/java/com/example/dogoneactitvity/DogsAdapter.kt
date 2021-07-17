@@ -1,8 +1,6 @@
 package com.example.dogoneactitvity
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,29 +22,27 @@ class DogAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.avatar.setImageBitmap(dogs[position].avatar)
-        holder.ivWhiteHeart.setImageBitmap(dogs[position].bitmapHeart)
-        holder.name.text = dogs[position].name
-        holder.description.text = dogs[position].description
-        holder.root.setOnClickListener { callback.itemDogSelected(position) }
-
+        val pos = holder.getAdapterPosition()
+        holder.avatar.setImageBitmap(dogs[pos].avatar)
+        holder.ivWhiteHeart.setImageBitmap(dogs[pos].bitmapHeart)
+        holder.name.text = dogs[pos].name
+        holder.description.text = dogs[pos].description
+        holder.root.setOnClickListener { callback.itemDogSelected(pos) }
         holder.ivWhiteHeart.setOnClickListener {
-
-            if (dogs[position].isHeart==false) {
+            if (dogs[pos].isHeart==false) {
                 holder.ivWhiteHeart.setImageResource(R.drawable.icons8_red_heart)
-                dogs[position].isHeart = true
+                dogs[pos].isHeart = true
                 count += 1
-                callback.addHeart(count)
+                callback.addCountHeart(count)
             } else {
                holder.ivWhiteHeart.setImageResource(R.drawable.icons8_white_heart)
-                dogs[position].isHeart = false
+                dogs[pos].isHeart = false
                 count -=1
-                callback.addHeart(count)
+                callback.addCountHeart(count)
             }
 
-
-
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -68,16 +64,14 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         description = itemView.tvDescription
         root = itemView.constRoot
         ivWhiteHeart = itemView.ivWhiteHeart
-
     }
 
     companion object {
         var count: Int = 0
-
     }
 }
 
 interface DogsCallback {
     fun itemDogSelected(index: Int)
-    fun addHeart(i: Int)
+    fun addCountHeart(i: Int)
 }
