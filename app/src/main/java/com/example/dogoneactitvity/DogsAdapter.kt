@@ -33,6 +33,7 @@ class DogAdapter(
                 holder.ivWhiteHeart.setImageResource(R.drawable.icons8_red_heart)
                 dogs[pos].isHeart = true
                 count += 1
+                    // Только для расчета счетчика лайков
                 callback.addCountHeart(count)
             } else {
                holder.ivWhiteHeart.setImageResource(R.drawable.icons8_white_heart)
